@@ -5,9 +5,12 @@
     applications in your local area.
   </p>
   <p>
-    <a class="btn btn-lg btn-success" href="#" role="button">
-      Sign up today
-    </a>
+    <%= link_to(
+          'Sign up today',
+          new_user_registration_path,
+          :class => "btn btn-lg btn-success",
+          :role => "button"
+        ) %>
   </p>
 </div>
 

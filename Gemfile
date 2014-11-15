@@ -28,5 +28,5 @@ gem 'twilio-ruby'
 gem 'twiml_template'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
-
+gem 'quiet_assets'
 gem 'envyable', group: :development
