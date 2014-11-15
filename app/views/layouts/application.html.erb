@@ -11,9 +11,15 @@
   <div class="header">
     <nav>
       <ul class="nav nav-pills pull-right">
-        <li role="presentation" class="active"><a href="/">Home</a></li>
-<!--         <li role="presentation"><a href="#">About</a></li>
-        <li role="presentation"><a href="#">Contact</a></li> -->
+        <li role="presentation" class="active">
+          <%= link_to "Home", root_path %>
+        </li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Sign out", destroy_user_session_path %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+        <% end %>
       </ul>
     </nav>
     <h3 class="text-muted">Planning PermiSMSion</h3>
@@ -22,7 +28,7 @@
   <%= yield %>
 
   <footer class="footer">
-    <p>&copy; Company 2014</p>
+    <p>&copy; Phil Nash 2014</p>
   </footer>
 
   <%= javascript_include_tag 'application' %>

@@ -21,6 +21,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.label :phone_number %>
+    <em>(optional if you want SMS updates)</em><br />
+    <%= f.text_field :phone_number %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
