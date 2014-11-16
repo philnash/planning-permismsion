@@ -8,7 +8,7 @@
 
   <div class="form-group">
     <%= f.label :radius, 'Notify me about applications within:' %>
-    <%= f.select :radius, [["0.5km", 500], ["1km", 1000]], {}, :class => 'form-control' %>
+    <%= f.select :radius, [["0.5km", 500], ["1km", 1000], ["2km", 2000], ["3km", 3000]], {}, :class => 'form-control' %>
   </div>
 
   <% if current_user.phone_number.present? %>
