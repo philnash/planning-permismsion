@@ -8,7 +8,7 @@ class Plan < ActiveRecord::Base
   def notify_subscriptions
     Subscription.all.each do |subscription|
       if self.distance_from(subscription, :km) < subscription.radius.to_f/1000
-        Rails.logger.info("OMG plan #{id} is close to subscription #{subscription.id}")
+        subscription.notify(self)
       end
     end
   end

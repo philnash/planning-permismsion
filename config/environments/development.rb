@@ -20,6 +20,9 @@ Rails.application.configure do
     port: 3000
   }
 
+
+  Rails.application.routes.default_url_options = {:host => "localhost:3000"}
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

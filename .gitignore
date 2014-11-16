@@ -16,3 +16,5 @@
 /tmp
 
 /csvs/*
+
+/config/env.yml

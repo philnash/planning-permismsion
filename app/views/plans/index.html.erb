@@ -1,0 +1,20 @@
+<h1>Planning Permission Applications</h1>
+
+<% if @plans.any? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Address</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @plans.each do |plan| %>
+        <tr>
+          <td><%= plan.address %></td>
+          <td><%= link_to "details", plan_path(plan) %></td>
+        </tr>
+      <% end -%>
+    </tbody>
+  </table>
+<% end -%>
