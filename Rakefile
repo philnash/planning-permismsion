@@ -4,3 +4,10 @@
 require File.expand_path('../config/application', __FILE__)
 
 Rails.application.load_tasks
+
+
+task :import => :environment do
+  plan_import = PlanImporter.new(:url => ENV['URL'])
+  plan_import.download
+  plan_import.import
+end
