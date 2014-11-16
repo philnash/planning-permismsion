@@ -1,0 +1,38 @@
+<h1>New subscription</h1>
+
+<%= form_for ['account', @subscription], :role => 'form' do |f| %>
+  <div class="form-group">
+    <%= f.label :address, 'Your address<em>*</em>'.html_safe %>
+    <%= f.text_field :address, :class => 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :radius, 'Notify me about applications within:' %>
+    <%= f.select :radius, [["0.5km", 500], ["1km", 1000]], {}, :class => 'form-control' %>
+  </div>
+
+  <% if current_user.phone_number.present? %>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :phone %>
+        Notify me by SMS
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :email %>
+        Notify me by email
+      </label>
+    </div>
+  <% else %>
+    <p>You will be notified by email. Please add a phone number to your account if you wish to be notified by SMS.</p>
+    <div class="checkbox">
+      <label>
+        <%= f.check_box :email, :disabled => 'disabled', :checked => 'checked' %>
+        Notify me by email
+      </label>
+    </div>
+  <% end -%>
+
+  <button type="submit" class="btn btn-default btn-primary">Save</button>
+<% end -%>
