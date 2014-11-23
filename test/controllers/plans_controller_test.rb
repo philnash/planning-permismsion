@@ -7,8 +7,8 @@ class PlansControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show
+    plan = Plan.create
+    get :show, :id => plan.to_param
     assert_response :success
   end
-
 end

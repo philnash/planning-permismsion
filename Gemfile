@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
@@ -18,8 +19,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Use unicorn as the app server
-gem 'unicorn'
 
 # Others
 
@@ -28,5 +27,13 @@ gem 'twilio-ruby'
 gem 'twiml_template'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
-gem 'quiet_assets'
 gem 'envyable'
+
+group :production do
+  gem 'unicorn'
+  gem 'rails_12factor'
+end
+
+group :development do
+  gem 'quiet_assets'
+end
