@@ -14,5 +14,12 @@ ActiveAdmin.register Plan do
   #   permitted
   # end
 
+  collection_action :import_csv, :method => :post do
+    plan_import = PlanImporter.new(:url => params[:url])
+    plan_import.download
+    plan_import.import
+
+    redirect_to({:action => :index}, {:notice => "CSV imported successfully!"})
+  end
 
 end

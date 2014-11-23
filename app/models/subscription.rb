@@ -20,7 +20,6 @@ class Subscription < ActiveRecord::Base
     end
     if email?
       SubscriptionMailer.alert(self, plan).deliver
-      Rails.logger.info("Alert: new planning permission application. Details at #{url_for(plan)}")
     end
   end
 end
